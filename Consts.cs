@@ -101,11 +101,11 @@ namespace AdfJsonGenerator
                 if (_storageAccounts == null)
                 {
                     _storageAccounts = new List<StorageAccount>();
-                    _storageAccounts.Add(new StorageAccount(0, "EU", "eastusbingads", "1d8zTqBuglJLuWml8L/DpoHQ0Lvv7mA9hH5gQ7vJ7Wy5DTdrbpMLCC4Df8A+qmubUZudn+VRGeUqCFeelvze3g=="));
-                    _storageAccounts.Add(new StorageAccount(1, "WU", "westusbingads", "OTcq85y56fJ6bKITzvI0qC9MaUOcgKZ5WEMK25ao55R3B0tzOkaT8gjA8P1qj+KSOFzjiQPBaVFLiPDz0L+BBA=="));
-                    _storageAccounts.Add(new StorageAccount(2, "NE", "northeuropebingads", "E2/XTSkMnnyySbDOBvwodIv/Rw+6ggkTaUFPiXua3PIl8dfnIbsKuilYbLQ1MUnpoSvRfwsA9WCPe05U/FrWQQ=="));
-                    _storageAccounts.Add(new StorageAccount(3, "SEA", "southeastasiabingads", "JpnPlIGSz/hw86L51NFR6b+3EMMAcQI3LC76PP1YWU+EJ6obQuyeiECI8lHQWcdNMqb/wMFckci/Ed/NOAWgjw=="));
-                    _storageAccounts.Add(new StorageAccount(4, "NCU", "northcentralusbingads", "xGtvfZ7CvmMjdk3EBloC/uAP7vranmlT5iq7+1QZCMxmLSnkIkpBU7ZbwsJ2iRhtDdnMovMXXvVLlOxtrgZVDA=="));
+                    _storageAccounts.Add(new StorageAccount(0, "EU", "eastusbingads", ""));
+                    _storageAccounts.Add(new StorageAccount(1, "WU", "westusbingads", ""));
+                    _storageAccounts.Add(new StorageAccount(2, "NE", "northeuropebingads", ""));
+                    _storageAccounts.Add(new StorageAccount(3, "SEA", "southeastasiabingads", ""));
+                    _storageAccounts.Add(new StorageAccount(4, "NCU", "northcentralusbingads", ""));
                 }
 
                 return _storageAccounts;
