@@ -1,0 +1,8 @@
+AdfJsonGenerator
+
+Purpose: Util for work
+Status: Done
+Date: 2016-02-04
+
+Details:
+Azure Data Factory requires a bunch of json definition for datasets and pipelines. It is cumbersome to manual copy/paste and edit for each different environment so this tool is created to generate the json files according to pre-defined templates.
