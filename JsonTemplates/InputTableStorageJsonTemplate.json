@@ -1,0 +1,37 @@
+﻿{
+    "name": "InputTable_<regionShort>_<tableName>",
+    "properties": {
+        "structure": [
+            {
+                "name": "PartitionKey"
+            },
+            {
+                "name": "RowKey"
+            },
+            {
+                "name": "TimeStamp"
+            },
+            {
+                "name": "Message"
+            }
+        ],
+        "published": false,
+        "type": "AzureTable",
+        "linkedServiceName": "AzureStorage_<accountName>",
+        "typeProperties": {
+            "tableName": "<tableName>"
+        },
+        "availability": {
+            "frequency": "Minute",
+            "interval": 15
+        },
+        "external": true,
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+﻿{
+    "name": "AzureStorage_<accountName>",
+    "properties": {
+        "description": "Bing Ads Production log storage for <description>",
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<key>"
+        }
+    }
+}

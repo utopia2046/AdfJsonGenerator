@@ -1,0 +1,18 @@
+﻿{
+    "name": "OutputCosmos_Prod_<tableName>",
+    "properties": {
+        "published": false,
+        "type": "CustomDataset",
+        "linkedServiceName": "CosmosLinkedService",
+        "typeProperties": {
+            "type": "CosmosFile",
+            "tableRootLocation": "CosmosRootFolder",
+            "folderPath": "$$Text.Format('/<cosmosFolder>/{0:yyyy}/{0:MM}/{0:dd}/', SliceStart)",
+            "streamExpiry": 180
+        },
+        "availability": {
+            "frequency": "Minute",
+            "interval": 15
+        }
+    }
+}

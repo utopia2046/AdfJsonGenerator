@@ -1,0 +1,41 @@
+﻿{
+    "name": "Azure2Cosmos_Prod_<tableName>",
+    "properties": {
+        "description": "Copy logs from Azure blob storage to Cosmos",
+        "activities": [
+            {
+                "type": "BlobToCosmosCopyActivity",
+                "typeProperties": {},
+                "inputs": [
+                    {
+                        "name": "InputAzureBlob_Prod_<tableName>"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "OutputCosmos_Prod_<tableName>"
+                    }
+                ],
+                "policy": {
+                    "timeout": "02:00:00",
+                    "delay": "00:05:00",
+                    "concurrency": 2,
+                    "retry": 3,
+                    "longRetry": 1,
+                    "longRetryInterval": "01:00:00"
+                },
+                "scheduler": {
+                    "frequency": "Minute",
+                    "interval": 15
+                },
+                "name": "CopyLogsFromBlobToCosmosJob",
+                "linkedServiceName": "CosmosProxyLinkedServiceV2"
+            }
+        ],
+        "start": "2016-02-04T00:00:00Z",
+        "end": "2016-12-31T00:00:00Z",
+        "isPaused": false,
+        "hubName": "bingadssandboxadf_hub",
+        "pipelineMode": "Scheduled"
+    }
+}

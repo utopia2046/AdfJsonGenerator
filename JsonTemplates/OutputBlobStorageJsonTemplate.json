@@ -1,0 +1,74 @@
+﻿{
+    "name": "OutputBlob_<regionShort>_<tableName>",
+    "properties": {
+        "structure": [
+            {
+                "name": "message"
+            }
+        ],
+        "published": false,
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorage_bingadslogsncus",
+        "typeProperties": {
+            "fileName": "apps_<tableNameShort>_{Year}{Month}{Day}_{Hour}{Minute}.<extension>_bucket<index>",
+            "folderPath": "uilogs/<tableName>/{Year}/{Month}/{Day}",
+            "format": {
+                "type": "TextFormat",
+                "rowDelimiter": "\n",
+                "columnDelimiter": ","
+            },
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                },
+                {
+                    "name": "Hour",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "HH"
+                    }
+                },
+                {
+                    "name": "Minute",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "mm"
+                    }
+                }
+            ],
+            "compression": {
+                "type": "GZip",
+                "level": "Optimal"
+            }
+        },
+        "availability": {
+            "frequency": "Minute",
+            "interval": 15
+        },
+        "external": false,
+        "policy": {}
+    }
+}

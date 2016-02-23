@@ -1,0 +1,59 @@
+﻿{
+    "name": "InputAzureBlob_siwestus_<tableName>",
+    "properties": {
+        "published": false,
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorage_siwestus",
+        "typeProperties": {
+            "folderPath": "uilogs/<tableName>/{Year}/{Month}/{Day}",
+            "format": {
+                "type": "TextFormat",
+                "rowDelimiter": "\n",
+                "columnDelimiter": ","
+            },
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                }
+            ],
+            "compression": {
+                "type": "GZip",
+                "level": "Optimal"
+            }
+        },
+        "availability": {
+            "frequency": "Minute",
+            "interval": 15
+        },
+        "external": true,
+        "policy": {
+            "externalData": {
+                "dataDelay": "00:05:00",
+                "retryInterval": "00:03:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
+        }
+    }
+}
